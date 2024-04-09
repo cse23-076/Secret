@@ -238,6 +238,14 @@
         .btn-font-size.hide {
             display: none;
         }
+
+        /* Fixed position for buttons */
+        .fixed-buttons {
+            position: fixed;
+            bottom: 60px; /* Adjusted to 60px from bottom */
+            right: 20px;
+            z-index: 999;
+        }
     </style>
 </head>
 <body>
@@ -265,13 +273,13 @@
         <div id="movies">
             <!-- Movies will be dynamically added here -->
         </div>
+    </div>
 
-        <!-- Buttons section -->
-        <div class="buttons">
-            <button class="btn btn-dark-mode" onclick="toggleDarkMode()">Toggle Dark/Light Mode</button>
-            <button class="btn btn-font-size" onclick="adjustFontSize(true)">Increase Font Size</button>
-            <button class="btn btn-font-size" onclick="adjustFontSize(false)">Decrease Font Size</button>
-        </div>
+    <!-- Buttons section -->
+    <div class="fixed-buttons">
+        <button class="btn btn-dark-mode" onclick="toggleDarkMode()">Toggle Dark/Light Mode</button>
+        <button class="btn btn-font-size" onclick="adjustFontSize(true)">Increase Font Size</button>
+        <button class="btn btn-font-size" onclick="adjustFontSize(false)">Decrease Font Size</button>
     </div>
 
     <!-- Footer section -->
