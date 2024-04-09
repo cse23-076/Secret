@@ -328,13 +328,19 @@
         // Adjust Font Size Function
         function adjustFontSize(isIncrease) {
             var currentSize = parseInt(window.getComputedStyle(document.body).fontSize);
-            if (isIncrease) {
-                document.body.style.fontSize = (currentSize + 2) + 'px';
-            } else {
-                if (currentSize > 10) { // Change 8 to 10 to make sure it doesn't go too small
-                    document.body.style.fontSize = (currentSize - 2) + 'px';
+            var elementsToAdjust = document.querySelectorAll('body, h1, h2, p, nav a');
+
+            elementsToAdjust.forEach(function(element) {
+                var fontSize = parseInt(window.getComputedStyle(element).fontSize);
+                if (isIncrease) {
+                    element.style.fontSize = (fontSize + 2) + 'px';
+                } else {
+                    if (fontSize > 10) {
+                        element.style.fontSize = (fontSize - 2) + 'px';
+                    }
                 }
-            }
+            });
+
             // Show decrease font size button when font size is increased
             var decreaseButton = document.querySelector('.btn-font-size:last-child');
             decreaseButton.style.visibility = 'visible';
