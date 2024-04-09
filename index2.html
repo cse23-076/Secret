@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Space Cinema 🌌</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+        }
+
+        header {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 40px 0;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 2px solid #fff;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin: 0;
+            padding-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+        }
+
+        nav {
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            transform: translateY(-50%);
+            margin-top: 40px;
+            animation: moveNav 15s linear infinite; /* Add animation */
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 18px;
+            position: relative;
+            transition: color 0.3s;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            color: #FF5733;
+        }
+
+        nav a::before {
+            content: attr(data-text);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            color: #FF5733;
+            visibility: hidden;
+            overflow: hidden;
+        }
+
+        nav a:hover::before {
+            visibility: visible;
+            animation: explode 0.5s ease-out;
+        }
+
+        @keyframes explode {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(4);
+                color: transparent;
+            }
+        }
+
+        @keyframes moveNav {
+            0% {
+                transform: translateY(-50%) translateX(-100%);
+            }
+            100% {
+                transform: translateY(-50%) translateX(100%);
+            }
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .welcome {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .welcome h2 {
+            margin-top: 0;
+            color: #FF5733;
+        }
+
+        .welcome p {
+            color: #fff;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        #movies {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .movie {
+            width: calc(25% - 20px);
+            margin: 0 10px 20px;
+            box-sizing: border-box;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        .movie img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .movie p {
+            color: #fff;
+            font-size: 16px;
+            margin-top: 8px;
+        }
+
+        footer {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            border-top: 2px solid #fff;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header section -->
+    <header>
+        <nav>
+            <a href="index.html" data-text="Home">🌠 Home</a>
+            <a href="tv_shows.html" data-text="TV Shows">📺 TV Shows</a>
+            <a href="feedback.html" data-text="Feedback">🚀 Feedback</a>
+            <a href="games_apps.html" data-text="Games">🎮 Games</a>
+        </nav>
+        <h1 id="title">Welcome to Space Cinema! 🌌</h1>
+    </header>
+
+    <!-- Content section -->
+    <div class="content">
+        <!-- Welcome section -->
+        <div class="welcome">
+            <h2>Explore the Galactic Cinematic Universe 🚀</h2>
+            <p>Embark on an interstellar journey through the latest and greatest movies. Dive into the depths of space and imagination with our carefully curated selection of films. From distant galaxies to alien worlds, every adventure awaits you here. 🌟✨</p>
+        </div>
+
+        <!-- Movie section -->
+        <div id="movies">
+            <!-- Movies will be dynamically added here -->
+            <div class="movie">
+                <img src="https://www.mmacrossfire.com/wp-content/uploads/2023/10/the-beekeeper_banner.jpg.webp" alt="Movie 1">
+                <h3>🎬 Beekeeper</h3>
+                <p>The Beekeeper is a 2024 action-thriller film by director David Ayer. Jason Statham stars as "Mr. Clay," a former member of a secret organization known as the "Beekeepers," who steps back into the field after a close friend is wronged in a phishing scam.</p>
+                <p>Cast: Jason Statham</p>
+                <p>Release Year: 2024</p>
+            </div>
+            <div class="movie">
+                <img src="https://terrigen-cdn-dev.marvel.com/content/prod/1x/across_the_spider-verse.jpg" alt="Movie 2">
+                <h3>🎬 Spider-Man: Across the Spider-Verse</h3>
+                <p>]Miles Morales catapults across the multiverse, where he encounters a team of Spider-People charged with protecting its very existence. When the heroes clash on how to handle a new threat, Miles must redefine what it means to be a hero.</p>
+                <p>Writer: Phil Lord, Christopher Miller, Dave Callaham</p>
+                <p>Release Year: 2023</p>
+            </div>
+            <div class="movie">
+                <img src="https://staticg.sportskeeda.com/editor/2023/06/f4a1a-16880641275679-1920.jpg" alt="Movie 3">
+                <h3>🎬 Dune Part II</h3>
+                <p>Dune: Part Two" will explore the mythic journey of Paul Atreides as he unites with Chani and the Fremen while on a warpath of revenge against the conspirators who destroyed his family. Facing a choice between the love of his life and the fate of the known universe, he endeavors to prevent a terrible future only he can foresee</p>
+                <p>Cast:
+Timothée, Chalamet Zendaya, Rebecca Ferguson
+</p>
+                <p>Release Year: 2024</p>
+            </div>
+            <div class="movie">
+                <img src="https://th.bing.com/th/id/OIP.KQArIY7ykqOX0IBIG9CorAHaK-?rs=1&pid=ImgDetMain" alt="Movie 4">
+                <h3>🎬Aquaman and the Lost Kingdom</h3>
+                <p>Action Adventure Fantasy Black Manta seeks revenge on Aquaman for his father's death. Wielding the Black Trident's power, he becomes a formidable foe. To defend Atlantis, Aquaman forges an alliance with his imprisoned brother. They must protect the kingdom.</p>
+              <p> Stars: Jason Momoa, Patrick Wilson, Yahya Abdul-Mateen II </p>
+              <p> Release year: 2023 </p>
+                <p>
