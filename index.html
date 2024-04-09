@@ -173,6 +173,7 @@
             border-radius: 5px;
             margin-bottom: 10px;
             transition: background-color 0.3s, color 0.3s;
+            outline: none;
         }
 
         .btn:hover {
@@ -180,10 +181,47 @@
             color: #FFD700;
         }
 
-        /* Dark mode styles */
-        .dark-mode {
+        .btn-dark-mode {
             background-color: #111;
             color: #fff;
+            margin-right: 10px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn-dark-mode:hover {
+            background-color: #fff;
+            color: #111;
+        }
+
+        .btn-font-size {
+            background-color: #111;
+            color: #fff;
+            margin-right: 10px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .btn-font-size:hover {
+            background-color: #fff;
+            color: #111;
+        }
+
+        /* Keyframes for button animations */
+        @keyframes scaleUp {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes scaleDown {
+            0% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
         }
     </style>
 </head>
@@ -212,6 +250,13 @@
         <div id="movies">
             <!-- Movies will be dynamically added here -->
         </div>
+
+        <!-- Buttons section -->
+        <div class="buttons">
+            <button class="btn btn-dark-mode" onclick="toggleDarkMode()">Toggle Dark/Light Mode</button>
+            <button class="btn btn-font-size" onclick="increaseFontSize()">Increase Font Size</button>
+            <button class="btn btn-font-size" onclick="decreaseFontSize()">Decrease Font Size</button>
+        </div>
     </div>
 
     <!-- Footer section -->
@@ -219,23 +264,51 @@
         <p>&copy; 2024 Space Cinema. All rights reserved. 🌌</p>
     </footer>
 
-    <!-- Button to toggle dark/light mode and adjust font size -->
-    <div style="text-align: center; margin-top: 20px;">
-        <button class="btn" onclick="toggleDarkMode()">Toggle Dark/Light Mode</button>
-        <button class="btn" onclick="increaseFontSize()">Increase Font Size</button>
-        <button class="btn" onclick="decreaseFontSize()">Decrease Font Size</button>
-    </div>
-
     <script>
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
+        // Function to trigger explosion animation
+        function explode(event, element) {
+            // Create explosion element
+            var explosion = document.createElement('div');
+            explosion.classList.add('explosion');
+            explosion.style.left = event.clientX + 'px';
+            explosion.style.top = event.clientY + 'px';
+            document.body.appendChild(explosion);
+
+            // Remove explosion element after animation ends
+            explosion.addEventListener('animationend', function () {
+                explosion.parentNode.removeChild(explosion);
+            });
         }
 
+        // Function to show title letters one by one
+        function showTitleLetters() {
+            var title = document.getElementById('title');
+            var letters = title.textContent.split('');
+            title.textContent = ''; // Clear the title
+
+            letters.forEach(function(letter, index) {
+                setTimeout(function() {
+                    title.textContent += letter;
+                }, 100 * index);
+            });
+        }
+
+        // Call the function to show title letters one by one
+        showTitleLetters();
+
+        // Dark Mode Toggle Function
+        function toggleDarkMode() {
+            var body = document.body;
+            body.classList.toggle("dark-mode");
+        }
+
+        // Increase Font Size Function
         function increaseFontSize() {
             var currentSize = parseInt(window.getComputedStyle(document.body).fontSize);
             document.body.style.fontSize = (currentSize + 2) + 'px';
         }
 
+        // Decrease Font Size Function
         function decreaseFontSize() {
             var currentSize = parseInt(window.getComputedStyle(document.body).fontSize);
             if (currentSize > 8) {
