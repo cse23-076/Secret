@@ -159,6 +159,31 @@
         footer p {
             margin: 0;
         }
+
+        .btn-group {
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            bottom: 60px;
+            z-index: 999; /* Ensure buttons are above other content */
+        }
+
+        .btn {
+            background-color: #FFD700;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 0 10px;
+            transition: background-color 0.3s, color 0.3s;
+            outline: none;
+        }
+
+        .btn:hover {
+            background-color: #000;
+            color: #FFD700;
+        }
     </style>
 </head>
 <body>
@@ -195,23 +220,69 @@
             <div class="movie">
                 <img src="https://terrigen-cdn-dev.marvel.com/content/prod/1x/across_the_spider-verse.jpg" alt="Movie 2">
                 <h3>🎬 Spider-Man: Across the Spider-Verse</h3>
-                <p>]Miles Morales catapults across the multiverse, where he encounters a team of Spider-People charged with protecting its very existence. When the heroes clash on how to handle a new threat, Miles must redefine what it means to be a hero.</p>
+                <p>Miles Morales catapults across the multiverse, where he encounters a team of Spider-People charged with protecting its very existence. When the heroes clash on how to handle a new threat, Miles must redefine what it means to be a hero.</p>
                 <p>Writer: Phil Lord, Christopher Miller, Dave Callaham</p>
                 <p>Release Year: 2023</p>
             </div>
             <div class="movie">
                 <img src="https://staticg.sportskeeda.com/editor/2023/06/f4a1a-16880641275679-1920.jpg" alt="Movie 3">
                 <h3>🎬 Dune Part II</h3>
-                <p>Dune: Part Two" will explore the mythic journey of Paul Atreides as he unites with Chani and the Fremen while on a warpath of revenge against the conspirators who destroyed his family. Facing a choice between the love of his life and the fate of the known universe, he endeavors to prevent a terrible future only he can foresee</p>
-                <p>Cast:
-Timothée, Chalamet Zendaya, Rebecca Ferguson
-</p>
+                <p>Dune: Part Two will explore the mythic journey of Paul Atreides as he unites with Chani and the Fremen while on a warpath of revenge against the conspirators who destroyed his family. Facing a choice between the love of his life and the fate of the known universe, he endeavors to prevent a terrible future only he can foresee.</p>
+                <p>Cast: Timothée, Chalamet Zendaya, Rebecca Ferguson</p>
                 <p>Release Year: 2024</p>
             </div>
             <div class="movie">
                 <img src="https://th.bing.com/th/id/OIP.KQArIY7ykqOX0IBIG9CorAHaK-?rs=1&pid=ImgDetMain" alt="Movie 4">
-                <h3>🎬Aquaman and the Lost Kingdom</h3>
+                <h3>🎬 Aquaman and the Lost Kingdom</h3>
                 <p>Action Adventure Fantasy Black Manta seeks revenge on Aquaman for his father's death. Wielding the Black Trident's power, he becomes a formidable foe. To defend Atlantis, Aquaman forges an alliance with his imprisoned brother. They must protect the kingdom.</p>
-              <p> Stars: Jason Momoa, Patrick Wilson, Yahya Abdul-Mateen II </p>
-              <p> Release year: 2023 </p>
-                <p>
+                <p>Stars: Jason Momoa, Patrick Wilson, Yahya Abdul-Mateen II</p>
+                <p>Release Year: 2023</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Buttons section -->
+    <div class="btn-group">
+        <button class="btn" onclick="toggleDarkLightMode()">Dark/Light Mode</button>
+        <button class="btn btn-font-size" onclick="adjustFontSize(true)">Increase Font Size</button>
+        <button class="btn btn-font-size" onclick="adjustFontSize(false)">Decrease Font Size</button>
+    </div>
+
+    <!-- Footer section -->
+    <footer>
+        <p>&copy; 2024 Space Cinema. All rights reserved. 🌌</p>
+    </footer>
+
+    <script>
+        // Function to toggle between Dark and Light Mode
+        function toggleDarkLightMode() {
+            var body = document.body;
+            if (body.style.backgroundColor === 'rgb(0, 0, 0)') {
+                // Switch to Light Mode
+                body.style.backgroundColor = '#f5f5f5'; // Light gray background
+                body.style.color = '#000'; // Black text color
+                document.querySelectorAll('nav a').forEach(link => {
+                    link.style.color = '#000'; // Set navigation links to black color
+                });
+            } else {
+                // Switch to Dark Mode
+                body.style.backgroundColor = '#000';
+                body.style.color = '#fff';
+                document.querySelectorAll('nav a').forEach(link => {
+                    link.style.color = '#fff';
+                });
+            }
+        }
+
+        // Function to adjust font size
+        function adjustFontSize(isIncrease) {
+            var elements = document.querySelectorAll('body, h1, h2, h3, p, nav a');
+            elements.forEach(function(element) {
+                var currentSize = parseInt(window.getComputedStyle(element).fontSize);
+                var newSize = isIncrease ? currentSize + 2 : currentSize - 2;
+                element.style.fontSize = newSize + 'px';
+            });
+        }
+    </script>
+</body>
+</html>
