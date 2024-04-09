@@ -223,6 +223,21 @@
                 transform: scale(1);
             }
         }
+
+        /* Additional styles for dark mode and hide class */
+        .dark-mode {
+            background-color: #111;
+            color: #fff;
+        }
+
+        .btn-dark-mode.dark-mode {
+            background-color: #fff;
+            color: #111;
+        }
+
+        .btn-font-size.hide {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -254,8 +269,8 @@
         <!-- Buttons section -->
         <div class="buttons">
             <button class="btn btn-dark-mode" onclick="toggleDarkMode()">Toggle Dark/Light Mode</button>
-            <button class="btn btn-font-size" onclick="increaseFontSize()">Increase Font Size</button>
-            <button class="btn btn-font-size" onclick="decreaseFontSize()">Decrease Font Size</button>
+            <button class="btn btn-font-size" onclick="adjustFontSize(true)">Increase Font Size</button>
+            <button class="btn btn-font-size" onclick="adjustFontSize(false)">Decrease Font Size</button>
         </div>
     </div>
 
@@ -296,24 +311,25 @@
         // Call the function to show title letters one by one
         showTitleLetters();
 
-        // Dark Mode Toggle Function
+        // Toggle Dark Mode Function
         function toggleDarkMode() {
             var body = document.body;
             body.classList.toggle("dark-mode");
         }
 
-        // Increase Font Size Function
-        function increaseFontSize() {
+        // Adjust Font Size Function
+        function adjustFontSize(isIncrease) {
             var currentSize = parseInt(window.getComputedStyle(document.body).fontSize);
-            document.body.style.fontSize = (currentSize + 2) + 'px';
-        }
-
-        // Decrease Font Size Function
-        function decreaseFontSize() {
-            var currentSize = parseInt(window.getComputedStyle(document.body).fontSize);
-            if (currentSize > 8) {
-                document.body.style.fontSize = (currentSize - 2) + 'px';
+            if (isIncrease) {
+                document.body.style.fontSize = (currentSize + 2) + 'px';
+            } else {
+                if (currentSize > 10) { // Change 8 to 10 to make sure it doesn't go too small
+                    document.body.style.fontSize = (currentSize - 2) + 'px';
+                }
             }
+            // Show decrease font size button when font size is increased
+            var decreaseButton = document.querySelector('.btn-font-size:last-child');
+            decreaseButton.style.visibility = 'visible';
         }
     </script>
 </body>
